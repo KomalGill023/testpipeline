@@ -1,6 +1,19 @@
-provider "azurerm" {
-  features {}
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+  }
+    backend "azurerm" {
+        resource_group_name  = "test-terra"
+        storage_account_name = "teststateterra"
+        container_name       = "terra"
+        key                  = "terraform.tfstate"
+    }
+
 }
+
 
 resource "azurerm_resource_group" "example" {
   name     = "${var.resource-group-name}"
