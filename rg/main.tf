@@ -2,15 +2,18 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      // version = "<= 2.66"
+      // version = ">=0.11"
     }
   }
-   /* backend "azurerm" {
+   backend "azurerm" {
         resource_group_name  = "test-terra"
         storage_account_name = "teststateterra"
         container_name       = "tfstate"
         key                  = "terraform.tfstate"
-    }*/
+    }
+    provider "azurerm" {
+features {}
+}
 
 }
 
